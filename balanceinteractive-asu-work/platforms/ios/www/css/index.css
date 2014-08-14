@@ -1,0 +1,440 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:url(../img/background-notext.jpg);
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+body.text {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:url(../img/background.jpg);
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    /*background:url(../img/background-notext.jpg) no-repeat center top;  170px x 200px */
+    position:relative;             /* position in the center of the screen */
+    height:auto;                   /* text area height */
+    width:300px;                   /* text area width */
+    text-align:center;
+    padding:0;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:250px auto 0;  /* USED TO BE 200px - offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+.yourlife .app {margin:130px auto 0;}
+.customizing .app {margin:60px auto 0;}
+.sun .app {margin:0px auto 0;}
+.visiting .app {margin:220px auto 0;}
+
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+	
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+
+.app ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.app ul li{
+	list-style:none;
+	font-size:16px;
+	text-align:center;
+	position:relative;
+}
+.app ul li a{
+	color:#000;
+	font-size:16px;
+	text-decoration:none;
+	text-align:center;
+	padding:21px 0;/*15px 0*/
+	display:block;
+	background:#FFB310;
+	color:#000;
+	border-radius:5px;
+	margin:0 0 10px;/*0 0 5px*/
+	font-weight:bold;
+	width:300px;
+	box-shadow: 1px 2px 2px #333;
+}
+.app ul li ul ul.level2 /* USED TO BE .app ul li ul*/{ 
+	display:none;
+}
+.app ul li ul li{
+	
+}
+.app ul li ul li a{
+	color:#fff;
+	font-size:16px;
+	text-decoration:none;
+	text-align:center;
+	padding:13px 0;
+	background:#000;
+	color:#fff;
+	font-weight:normal;
+	font-size:14px;
+	padding:21px 0;margin:0 0 4px;
+	
+	
+}
+.app ul li ul li ul{
+	position:absolute;
+	left:304px;
+	top:0;
+}
+
+
+/* TEXT */
+.text {margin-top:50px;}
+
+
+/* HIGHLIGHT */
+ul.level1 > li.dots:hover > a.parent {background:#FFB310 url(../img/icon-dots-black.png) no-repeat 278px 28px;color:#000;background-size:5%;}
+ul.level2 {position:relative;z-index:1000;}
+
+ 
+/* ICONS */
+.app ul li.triangle a, .app ul li ul li.triangle a {background:#000 url(../img/icon-triangle.png) no-repeat 279px 22px;background-size:5%;}
+.app ul li.document a, .app ul li ul li.document a {background:#000 url(../img/icon-document.png) no-repeat 278px 21px;background-size:5%;}
+.app ul li.arrow a {background:#000 url(../img/icon-arrow.png) no-repeat 273px 22px;background-size:7%;}
+.app ul li.arrow-twolines a {background:#000 url(../img/icon-arrow.png) no-repeat 273px 30px;background-size:7%;}
+.app ul li.dots a {background:#000 url(../img/icon-dots.png) no-repeat 278px 28px;background-size:5%;}
+
+
+/* MAIN NAV */
+
+@charset "UTF-8";
+#cssmenu ul,
+#cssmenu li,
+#cssmenu span,
+#cssmenu a {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+/*#cssmenu {
+background:transparent url(../img/hamburger-nav.png) no-repeat 30px 30px;display:inine;width:180px;z-index:0;height:120px;
+  
+}*/
+
+#cssmenu li.active img {width:100%;height:auto;margin-top:30px;margin-bottom:30px;}
+
+#cssmenu ul ul {margin-top:25px;}
+
+#cssmenu:after,
+#cssmenu ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#cssmenu a {
+  background: transparent;
+  display: block;
+  padding: 0 28px;
+  text-decoration: none;
+}
+#cssmenu ul {
+  list-style: none;
+}
+#cssmenu > ul {
+  float: left;
+}
+#cssmenu > ul > li {
+  float: left;height:80px;
+}
+
+#cssmenu > ul > li.active a,
+#cssmenu > ul > li:hover > a {
+background: transparent;width:100px;
+}
+#cssmenu .has-sub {
+  z-index: 1;
+}
+#cssmenu .has-sub:hover > ul {
+  display: block;
+}
+#cssmenu .has-sub ul {
+ 
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+#cssmenu .has-sub ul li a {
+  background: #FFB310;
+  color: #000;
+  display: block;
+  padding: 15px 20px;margin-bottom:5px;
+  font-size: 16px;margin-left:30px;width:150px;font-weight:bold;border-radius:5px;
+  box-shadow: 1px 2px 2px #333;
+}
+#cssmenu .has-sub ul li:hover a {
+  background: #FFB310;
+}
+
+
+/*-----------------
+------- OVERLAY ------*/
+#lean_overlay {
+    position: fixed;
+    z-index:99999;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+	text-align:center;
+}
+#polytechnic h2 {color:#fff;font-size:36px}
+#polytechnic h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#polytechnic img {width:17%;height:auto;}
+#polytechnic {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#tempe h2 {color:#fff;font-size:36px}
+#tempe h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#tempe img {width:17%;height:auto;}
+#tempe {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#west h2 {color:#fff;font-size:36px}
+#west h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#west img {width:17%;height:auto;}
+#west {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#downtown h2 {color:#fff;font-size:36px}
+#downtown h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#downtown img {width:17%;height:auto;}
+#downtown {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#lake h2 {color:#fff;font-size:36px}
+#lake h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#lake img {width:17%;height:auto;}
+#lake {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#finding h2 {color:#fff;font-size:36px}
+#finding h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#finding img {width:17%;height:auto;}
+#finding {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#financing h2 {color:#fff;font-size:36px}
+#financing h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#financing img {width:17%;height:auto;}
+#financing {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#dream h2 {color:#fff;font-size:36px}
+#dream h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#dream img {width:17%;height:auto;}
+#dream {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#events h2 {color:#fff;font-size:36px}
+#events h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#events img {width:17%;height:auto;}
+#events {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#athletic h2 {color:#fff;font-size:36px}
+#athletic h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#athletic img {width:17%;height:auto;}
+#athletic {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#broadway h2 {color:#fff;font-size:36px}
+#broadway h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#broadway img {width:17%;height:auto;}
+#broadway {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#museums h2 {color:#fff;font-size:36px}
+#museums h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#museums img {width:17%;height:auto;}
+#museums {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#dining h2 {color:#fff;font-size:36px}
+#dining h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#dining img {width:17%;height:auto;}
+#dining {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#enjoying h2 {color:#fff;font-size:36px}
+#enjoying h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#enjoying img {width:17%;height:auto;}
+#enjoying {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#excellence h2 {color:#fff;font-size:36px}
+#excellence h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#excellence img {width:17%;height:auto;}
+#excellence {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#topranked h2 {color:#fff;font-size:36px}
+#topranked h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#topranked img {width:17%;height:auto;}
+#topranked {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#access h2 {color:#fff;font-size:36px}
+#access h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#access img {width:17%;height:auto;}
+#access {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#support h2 {color:#fff;font-size:36px}
+#support h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#support img {width:17%;height:auto;}
+#support {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#life h2 {color:#fff;font-size:36px}
+#life h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#life img {width:17%;height:auto;}
+#life {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#culture h2 {color:#fff;font-size:36px}
+#culture h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#culture img {width:17%;height:auto;}
+#culture {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#graduation h2 {color:#fff;font-size:36px}
+#graduation h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#graduation img {width:17%;height:auto;}
+#graduation {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#degrees h2 {color:#fff;font-size:36px}
+#degrees h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#degrees img {width:17%;height:auto;}
+#degrees {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#dreamed h2 {color:#fff;font-size:36px}
+#dreamed h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#dreamed img {width:17%;height:auto;}
+#dreamed {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#goodlife h2 {color:#fff;font-size:36px}
+#goodlife h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#goodlife img {width:17%;height:auto;}
+#goodlife {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#barrett h2 {color:#fff;font-size:36px}
+#barrett h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#barrett img {width:17%;height:auto;}
+#barrett {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#research h2 {color:#fff;font-size:36px}
+#research h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#research img {width:17%;height:auto;}
+#research {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#abroad h2 {color:#fff;font-size:36px}
+#abroad h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#abroad img {width:17%;height:auto;}
+#abroad {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#internships h2 {color:#fff;font-size:36px}
+#internships h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#internships img {width:17%;height:auto;}
+#internships {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#entre h2 {color:#fff;font-size:36px}
+#entre h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#entre img {width:17%;height:auto;}
+#entre {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#community h2 {color:#fff;font-size:36px}
+#community h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#community img {width:17%;height:auto;}
+#community {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+#clubs h2 {color:#fff;font-size:36px}
+#clubs h1 {color:#FFB310;font-size:46px;font-weight:bold;margin-top:30px;}
+#clubs img {width:17%;height:auto;}
+#clubs {position:relative;z-index:5000;display:none;background-color:#000;width:768px; height:1024px;padding:140px 50px 50px;}
+
+.message {position:absolute;top:800px;text-align:center;color:#fff;font-size:22px;width:768px;letter-spacing:2px;}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>Value</key>
+			<string>localhost</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>asuapp_serverurl</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Server</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Value</key>
+			<string>8000</string>
+			<key>Title</key>
+			<string>Port</string>
+			<key>Key</key>
+			<string>asuapp_port</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Titles</key>
+			<array>
+				<string>15 sec</string>
+				<string>30 sec</string>
+				<string>45 sec</string>
+				<string>60 sec</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>15</string>
+				<string>30</string>
+				<string>45</string>
+				<string>60</string>
+			</array>
+			<key>Title</key>
+			<string>Timeout</string>
+			<key>Key</key>
+			<string>asuapp_timeout</string>
+			<key>DefaultValue</key>
+			<string>30</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

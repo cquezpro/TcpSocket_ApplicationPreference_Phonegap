@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C78BFD85-EA53-4453-92AD-ED41A028CFA3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ASU</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>763ABB6F-149B-45C1-9359-E5E9B8AF1159</key>
+		<string>https://bitbucket.org/balanceinteractive/asu-app.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/ASU.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>763ABB6F-149B-45C1-9359-E5E9B8AF1159</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/balanceinteractive/asu-app.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>763ABB6F-149B-45C1-9359-E5E9B8AF1159</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>763ABB6F-149B-45C1-9359-E5E9B8AF1159</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ASU</string>
+		</dict>
+	</array>
+</dict>
+</plist>

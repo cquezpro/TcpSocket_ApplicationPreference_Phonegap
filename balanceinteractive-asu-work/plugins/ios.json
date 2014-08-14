@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"applicationPreferences\"><param name=\"ios-package\" value=\"AGApplicationPreferences\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Socket\"><param name=\"ios-package\" value=\"CDVSocketPlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.appgiraffe.plugins.applicationPreferences": {
+            "PACKAGE_NAME": "com.balanceinteractive.ASU"
+        },
+        "com.tlantic.plugins.socket": {
+            "PACKAGE_NAME": "com.balanceinteractive.ASU"
+        }
+    },
+    "dependent_plugins": {}
+}
